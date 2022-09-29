@@ -5,6 +5,9 @@ import java.util.Scanner;
 import financeiro.Emprestimo;
 import livros.Livros;
 import usuario.Usuario;
+import financeiro.GerenciaEmprestimo;
+import livros.GerenciaLivros;
+import usuario.GerenciaUsuario;
 
 public class SysLoca {
     public static void main(String[] args) {
@@ -18,37 +21,61 @@ public class SysLoca {
         Emprestimo emp;
 
         int op1, op2, op3, op4;
-        String nome, matr;
+        String nome, cpf, id, codEmp;
 
         do {
             exibeMenu();
             op1 = in.nextInt(); in.nextLine();
             switch (op1) {
-                case 1: System.out.print("Informe a matrícula do aluno: ");
-                        matr = in.nextLine();
-                        System.out.print("Informe o nome do aluno: ");
-                        nome = in.nextLine();
-                        al = new Aluno (matr, nome);
-                        turma.inserirAluno(al);
+                case 1: exibeMenuUsuario();
+                        op2 = in.nextInt();
+                        switch (op2) {
+                            case 1: // Cadastrar novo usuario
+                                
+                                break;
+                            default:
+                                break;
+                        }
                         break;
-                case 2: System.out.print("Informe a matrícula do aluno: ");
-                        matr = in.nextLine();
-                        System.out.print("Informe o nome do aluno: ");
-                        nome = in.nextLine();
-                        al = new Aluno (matr, nome);
-                        turma.inserirAlunoFinal(al);
+                case 2: exibeLivro();
+                        op3 = in.nextInt();
+                        switch (op3) {
+                            case 1: // Cadastrar 
+                                
+                                break;
+                            default:
+                                break;
+                        }
                         break;
-                case 3: turma.exibir();
+                case 3: exibeMenuEmprestimo();
+                        op4 = in.nextInt();
+
+                        switch (op4) {
+                            case 1: //executar empréstimo
+                                    System.out.println("Insira o seu cpf: ");
+                                    cpf = in.nextLine();
+                                    usuarios.buscarUser(cpf);
+
+                                    System.out.println("Insira o código do livro (ISBN ou ID): ");
+                                    id = in.nextLine();
+                                    livros.buscarLiv(id);
+
+                                    if(usuarios.buscarUser() != null && livros.buscarLiv() != null){
+                                        System.out.println("Insira o número do emprestimo: ");
+                                        codEmp = in.nextLine();
+                                        emprestimos.inserirEmprestimo(codEmp);
+                                    }
+                                    break;
+                            case 0: System.out.println("Sistema Encerrado");
+                                    break;
+                            default: System.out.println("Opção inválida");
+                        }
                         break;
-                case 4: turma.removerPrimeiro();
-                        break;
-                case 5: turma.removerUltimo();
-                        break;
-                case 0: System.out.println("Bye bye");
+                case 0: System.out.println("Sistema Encerrado");
                         break;
                 default: System.out.println("Opção inválida");
             }           
-        } while (op != 0);
+        } while (op1 != 0);
     }
     public static void exibeMenu() {
         System.out.println("Opções");
@@ -71,11 +98,7 @@ public class SysLoca {
 
     public static void exibeMenuEmprestimo() {
         System.out.println("Opções");
-        System.out.println("1 - Cadastrar um novo usuário");
-        System.out.println("2 - Cadastrar novo aluno no final da lista");
-        System.out.println("3 - Exibir alunos da turma");
-        System.out.println("4 - Remover aluno do início da lista");
-        System.out.println("5 - Remover aluno do final da lista");
+        System.out.println("1 - Executar Emprestimo");
         System.out.println("0 - Encerrar programa");
         System.out.print("Digite a opção desejada: ");
     }
@@ -85,8 +108,8 @@ public class SysLoca {
         System.out.println("1 - Cadastrar um livro físico");
         System.out.println("2 - Cadastrar um eBook");
         System.out.println("2 - Cadastrar um AudioBook");
-        System.out.println("3 - Exibir todos os usuários cadastrados");
-        System.out.println("4 - Remover um usuário");
+        System.out.println("3 - Exibir todos os livros cadastrados");
+        System.out.println("4 - Remover um livro");
         System.out.println("0 - Encerrar programa");
         System.out.print("Digite a opção desejada: ");
     }

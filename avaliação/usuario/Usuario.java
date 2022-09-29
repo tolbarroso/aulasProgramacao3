@@ -2,24 +2,24 @@ package usuario;
 
 public class Usuario implements Comparable<Usuario> {
 
-    private int[] cpf;
+    private String cpf;
     private String nome;
     private int quantLivros;
 
-    public Usuario(int[] cpf) {
+    public Usuario(String cpf) {
         this.cpf = cpf;
     }
 
-    public Usuario(int[] cpf, String nome) {
+    public Usuario(String cpf, String nome) {
         this.cpf = cpf;
         this.nome = nome;
     }
 
-    public int[] getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int[] cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -41,7 +41,7 @@ public class Usuario implements Comparable<Usuario> {
 
     public int compareTo(Usuario user) {
         int result;
-        result = this.getCpf().length;
+        result = this.getCpf().compareTo(user.getCpf());
         return result;
     }
 

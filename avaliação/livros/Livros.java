@@ -1,10 +1,14 @@
 package livros;
 
-public abstract class Livros implements Comparable<Livros> {
+public class Livros implements Comparable<Livros> {
     private String id;
     private String titulo;
     private String autor;
     private int ano;
+
+    public Livros(String id) {
+        this.id = id;
+    }
 
     public Livros(String id, String titulo, String autor, int ano) {
         this.id = id;
@@ -47,7 +51,7 @@ public abstract class Livros implements Comparable<Livros> {
 
     public int compareTo(Livros li) {
         int result;
-        result = this.getId().compareTo(li.getId());;
+        result = this.getId().compareTo(li.getId());
         return result;
     }
 

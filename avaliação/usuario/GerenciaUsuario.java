@@ -13,7 +13,7 @@ public class GerenciaUsuario {
         }
     }
 
-    private Info buscar(Usuario user) {
+    private Info buscarUser(Usuario user) {
         Info aux;
         if (this.isEmpty() == true) {
             return null;
@@ -32,7 +32,7 @@ public class GerenciaUsuario {
 
     public void inserirUsuario (Usuario user) {
         Info novo, aux;
-        Info result = this.buscar(user);
+        Info result = this.buscarUser(user);
         if (result != null) {
             System.out.println("O Usuario já está cadastrado!");
         } else {
@@ -63,7 +63,7 @@ public class GerenciaUsuario {
         }
     }
 
-    public void removerUsuarioEspecifico(int[] cpf) {
+    public void removerUsuarioEspecifico(String cpf) {
         Usuario proc = new Usuario(cpf);
         Info atual, anterior;
         if (this.isEmpty() == true) {
@@ -73,7 +73,7 @@ public class GerenciaUsuario {
                 this.primeiro = null;
                 System.out.println("Remoção efetuada");
             } else {
-                System.out.println("Aluno não encontrado!");
+                System.out.println("Usuario não encontrado!");
             }
         } else { 
             if (proc.compareTo(this.primeiro.getInfoUsuarios()) == 0) { // remoção do primeiro

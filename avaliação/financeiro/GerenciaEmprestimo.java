@@ -1,7 +1,5 @@
 package financeiro;
 
-import livros.Livros;
-import usuario.Usuario;
 import view.Info;
 
 public class GerenciaEmprestimo {
@@ -15,7 +13,7 @@ public class GerenciaEmprestimo {
         }
     }
 
-    private Info buscar(Emprestimo emp) {
+    private Info buscarEmp(Emprestimo emp) {
         Info aux;
         if (this.isEmpty() == true) {
             return null;
@@ -34,7 +32,7 @@ public class GerenciaEmprestimo {
 
     public void inserirEmprestimo (Emprestimo emp) {
         Info novo, aux;
-        Info result = this.buscar(emp);
+        Info result = this.buscarEmp(emp);
         if (result != null) {
             System.out.println("Emprestimo já realizado!");
         } else {
@@ -101,12 +99,4 @@ public class GerenciaEmprestimo {
             }
         }
     }
-
-    public void executarEmprestimo(Usuario codUser, Livros codLiv){
-        Info usuarios;
-        Info livros;
-
-        usuarios.getCpf().buscar();
-    }
-
 }
