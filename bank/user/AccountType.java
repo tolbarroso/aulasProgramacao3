@@ -1,6 +1,6 @@
 package user;
 
-public enum TipoDeConta {
+public enum AccountType {
   Corrente,
   Poupanca,
   Salario,

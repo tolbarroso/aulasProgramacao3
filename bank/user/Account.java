@@ -1,14 +1,14 @@
 package user;
 
-public class Conta {
+public class Account {
   //Atributos
   protected String accountNumber;
   protected double balance;
   protected String clientName;
-  protected TipoDeConta tipoDeConta;
+  protected AccountType accountType;
 
   //Construtor
-  public Conta (String accountNumber, String clientName){
+  public Account (String accountNumber, String clientName){
     this.accountNumber = accountNumber;
     this.balance = 0;
     this.clientName = clientName;

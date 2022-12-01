@@ -54,7 +54,7 @@ public class Banco {
 
     public void criarConta(String nomeTitular, String numeroConta) {
         if (!contaExistente(numeroConta)) {
-            contas.add(new Conta(nomeTitular, numeroConta, TipoDeConta.CORRENTE));
+            contas.add(new Conta(nomeTitular, numeroConta, AccountType.CORRENTE));
         }
     }
 
@@ -62,7 +62,7 @@ public class Banco {
         Banco bank = new Banco();
         bank.criarConta("Geraldao", "1234");
 
-        Conta geraldao = new Conta("Geraldao", "1234", TipoDeConta.CORRENTE);
+        Conta geraldao = new Conta("Geraldao", "1234", AccountType.CORRENTE);
         System.out.println(geraldao.getSaldo());
         geraldao.depositar(10000);
         System.out.println(geraldao.getSaldo());

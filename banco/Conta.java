@@ -5,7 +5,7 @@ public class Conta {
     private String nomeTitular;
     private String numeroConta;
     private double saldo;
-    private TipoDeConta tipoDeConta;
+    private AccountType tipoDeConta;
  
     //Construtor
     public Conta(String nomeTitular, String numeroConta) {
